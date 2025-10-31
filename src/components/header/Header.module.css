@@ -946,7 +946,7 @@
   }
 
   .mobileActionButtons {
-    padding: 0px;
+    padding: 0 12px 0 12px;
     gap: 6px;
   }
 
