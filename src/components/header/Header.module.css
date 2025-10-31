@@ -90,7 +90,7 @@
 }
 
 .logoTagline {
-  font-size: 25px;
+  font-size: 11px;
   color: #666666;
   font-weight: 500;
   letter-spacing: 0.3px;
@@ -156,7 +156,7 @@
 }
 
 .logoTagline {
-  font-size: 8px;
+  font-size: 11px;
   color: #666666;
   font-weight: 500;
   letter-spacing: 0.3px;
@@ -621,9 +621,9 @@
   .consultationButton {
     flex: 1;
     padding: 12px 16px;
-    background: #035f06 !important;
+    background: #7cb342 !important;
     color: #ffffff;
-    font-size: 23px;
+    font-size: 13px;
     font-weight: 600;
     border-radius: 8px;
     transition: all 0.2s ease;
@@ -929,11 +929,11 @@
   }
 
   .mobileLogo .logoText {
-    font-size: 26px;
+    font-size: 16px;
   }
 
   .mobileLogo .logoTagline {
-    font-size: 20px;
+    font-size: 7px;
   }
 
   .mobileSearchBar {
@@ -946,14 +946,14 @@
   }
 
   .mobileActionButtons {
-    padding: 20px 12px;
+    padding: 10px 12px;
     gap: 6px;
   }
 
   .prescriptionButton,
   .consultationButton {
     padding: 10px 12px;
-    font-size: 32px;
+    font-size: 12px;
   }
 
   .mobileDeliverTo {
