@@ -1,0 +1,295 @@
+.newArrivals {
+  width: 100%;
+  padding: 3rem 0;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.heading {
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #1a1a1a;
+}
+
+.carouselWrapper {
+  position: relative;
+  padding: 0 3rem;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 1px solid #e0e0e0;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navButton:hover:not(:disabled) {
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.navButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.navButton svg {
+  color: #666666;
+}
+
+.navButtonLeft {
+  left: 0;
+}
+
+.navButtonRight {
+  right: 0;
+}
+
+.productsContainer {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 1rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.productsContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.productCard {
+  flex: 0 0 280px;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.productCard:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 220px;
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 1rem;
+}
+
+.productInfo {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.category {
+  font-size: 0.75rem;
+  color: #666666;
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
+}
+
+.productName {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  flex-grow: 1;
+  min-height: 2.8rem;
+}
+
+.productFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.currency {
+  font-size: 0.875rem;
+  color: #333333;
+  font-weight: 500;
+}
+
+.amount {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.outOfStock {
+  font-size: 0.875rem;
+  color: #e91e63;
+  font-weight: 500;
+}
+
+.cartButton {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #e91e63;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cartButton:hover:not(:disabled) {
+  background-color: #c2185b;
+  transform: scale(1.05);
+}
+
+.cartButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.seeMoreWrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.seeMoreButton {
+  font-size: 1rem;
+  color: #333333;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  transition: color 0.2s ease;
+  text-decoration: underline;
+}
+
+.seeMoreButton:hover {
+  color: #e91e63;
+}
+
+@media (max-width: 1024px) {
+  .carouselWrapper {
+    padding: 0 2.5rem;
+  }
+
+  .productCard {
+    flex: 0 0 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .carouselWrapper {
+    padding: 0 2rem;
+  }
+
+  .navButton {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .productCard {
+    flex: 0 0 240px;
+  }
+
+  .imageWrapper {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .newArrivals {
+    padding: 2rem 0;
+  }
+
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .heading {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .carouselWrapper {
+    padding: 0 0.5rem;
+  }
+
+  .navButton {
+    display: none;
+  }
+
+  .productsContainer {
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+
+  .productCard {
+    flex: 0 0 220px;
+  }
+
+  .imageWrapper {
+    height: 180px;
+  }
+
+  .productInfo {
+    padding: 0.875rem;
+  }
+
+  .productName {
+    font-size: 0.875rem;
+  }
+
+  .cartButton {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}

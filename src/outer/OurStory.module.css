@@ -1,0 +1,243 @@
+/* ================================================================
+   File: OurStory.module.css
+   Modern, Accessible & Scalable (2025 Best Practices)
+   Brand: Medical / Pharmacy (Maroon + Teal)
+   ================================================================ */
+
+/* ---------- Global Tokens ---------- */
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #ffffff;
+  --color-text: #0f172a;
+  --color-muted: #6b7280;
+  --color-brand: #7a0c2e; /* maroon accent */
+  --color-accent: #0077b6; /* teal/blue accent */
+  --color-line: #e5e7eb;
+
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --shadow-card: 0 8px 20px rgba(15, 23, 42, 0.06);
+  --max-width: 1100px;
+
+  --transition-base: 0.45s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+/* ---------- Section Layout ---------- */
+.section {
+  width: 100%;
+  padding: 3rem 1rem;
+  background: linear-gradient(180deg, #fbfdff 0%, var(--color-bg) 100%);
+  display: flex;
+  justify-content: center;
+  color: var(--color-text);
+}
+
+.inner {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.inner.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Header ---------- */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-brand);
+  margin: 0;
+}
+
+.intro {
+  margin-top: 0.75rem;
+  max-width: 760px;
+  margin-inline: auto;
+  color: var(--color-muted);
+  font-size: 1.05rem;
+}
+
+/* ---------- Timeline ---------- */
+.timeline {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+/* Desktop layout */
+@media (min-width: 880px) {
+  .timeline {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2rem;
+  }
+}
+
+.milestone {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.inner.visible .milestone {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ---------- Meta (Year Badge) ---------- */
+.meta {
+  flex: 0 0 72px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.year {
+  text-align: center;
+}
+
+/* ---------- Card ---------- */
+.card {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* ---------- Media ---------- */
+.media {
+  flex: 0 0 86px;
+  width: 86px;
+  height: 86px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: linear-gradient(180deg, #fbfdff, #f3f7fa);
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder {
+  width: 64px;
+  height: 64px;
+  border: 2px dashed var(--color-line);
+  color: var(--color-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Content ---------- */
+.content {
+  flex: 1 1 auto;
+}
+
+.milestoneTitle {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.desc {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.note {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .inner,
+  .milestone {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* ---------- Mobile Adjustments ---------- */
+@media (max-width: 600px) {
+  .section {
+    padding: 2rem 1rem;
+  }
+
+  .meta {
+    width: 56px;
+    height: 56px;
+    font-size: 0.8rem;
+  }
+
+  .media {
+    width: 64px;
+    height: 64px;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .intro {
+    font-size: 1rem;
+  }
+}
+
+/* ---------- Theming (Dark Mode) ---------- */
+:root[data-theme="dark"] {
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-text: #f1f5f9;
+  --color-muted: #94a3b8;
+  --color-brand: #ffdede;
+  --color-accent: #7ad1ff;
+  --color-line: #334155;
+}

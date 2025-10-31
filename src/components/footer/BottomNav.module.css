@@ -1,0 +1,194 @@
+/* ==========================================================
+   BottomNav.module.css — Updated (Always Show Labels + Custom Colors)
+   ========================================================== */
+
+:root {
+  --accent-color: #00a8e1;
+  --alert-color: #ff5252;
+  --success-color: #28a745; /* Green for MapPin */
+  --cart-color: #ff8c00; /* Orange for Cart */
+  --text-muted: #666;
+  --bg-light: #ffffff;
+  --shadow-soft: 0 -2px 8px rgba(0, 0, 0, 0.05);
+  --border-light: 1px solid #e5e5e5;
+}
+
+/* ---------- Container ---------- */
+.bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background-color: var(--bg-light);
+  border-top: var(--border-light);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+  padding: 0 0.4rem;
+}
+
+/* ---------- Nav Item ---------- */
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: clamp(0.7rem, 2vw, 0.85rem);
+  min-width: 56px;
+  padding: 6px 0;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.navItem:hover {
+  color: var(--accent-color);
+}
+
+/* ---------- Icons ---------- */
+.iconWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  color: var(--text-muted);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* 🟢 Map Icon — Always Green */
+.mapIcon {
+  color: var(--success-color) !important;
+}
+
+/* 🟠 Cart Icon — Always Orange */
+.cartIcon {
+  color: var(--cart-color) !important;
+}
+
+/* ---------- Labels ---------- */
+.label {
+  font-size: 11px;
+  line-height: 1;
+  display: block !important; /* Always show label */
+}
+
+/* ---------- Badges ---------- */
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background-color: var(--alert-color);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------- Active ---------- */
+.active .icon {
+  color: var(--accent-color);
+  transform: scale(1.15);
+}
+
+.active .label {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+/* ---------- External Link ---------- */
+.externalLink {
+  color: var(--success-color);
+}
+
+/* ---------- Responsiveness ---------- */
+@media (max-width: 768px) {
+  .bottomNav {
+    height: 60px;
+    justify-content: space-evenly;
+  }
+
+  .icon {
+    width: 21px;
+    height: 21px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bottomNav {
+    height: 58px;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .label {
+    font-size: 10px;
+    display: block !important; /* Force show even on smallest screens */
+  }
+}
+
+
+/* ---------- Cart Icon with Item Count ---------- */
+.iconWithBadge {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartCount {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background-color: var(--cart-color);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-radius: 50%;
+  padding: 2px 5px;
+  min-width: 16px;
+  height: 16px;
+  line-height: 1;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  animation: popIn 0.25s ease-out;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* ===== Responsive Visibility Control ===== */
+@media (min-width: 1025px) {
+  .bottomNav {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .bottomNav {
+    display: flex !important;
+  }
+}
+

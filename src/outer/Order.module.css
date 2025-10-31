@@ -1,0 +1,454 @@
+/* ========================================
+   ROOT VARIABLES
+   ======================================== */
+:root {
+  --color-primary: #10b981;
+  --color-primary-dark: #059669;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #1da851;
+  --color-text-primary: #111827;
+  --color-text-secondary: #6b7280;
+  --color-text-tertiary: #9ca3af;
+  --color-background: #ffffff;
+  --color-background-secondary: #f9fafb;
+  --color-border: #e5e7eb;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-shadow-hover: rgba(0, 0, 0, 0.15);
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --spacing-unit: 0.25rem;
+  --transition-base: 0.2s ease;
+  --transition-spring: 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ========================================
+   CONTAINER & LAYOUT
+   ======================================== */
+.orderContainer {
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: clamp(1rem, 4vw, 2rem);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--color-text-primary);
+  line-height: 1.6;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.25rem, 3vw, 1.5rem);
+  margin-top: clamp(1.5rem, 4vw, 2rem);
+}
+
+@media (min-width: 768px) {
+  .contentGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 2fr 1fr;
+  }
+  
+  .whatsappSection {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ========================================
+   CONFIRMATION SECTION
+   ======================================== */
+.confirmationSection {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 4vw, 2rem);
+  box-shadow: 0 4px 6px -1px var(--color-shadow), 0 2px 4px -1px var(--color-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .confirmationSection {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.confirmationContent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.checkmarkIcon {
+  width: clamp(2.5rem, 6vw, 3rem);
+  height: clamp(2.5rem, 6vw, 3rem);
+  color: #ffffff;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.confirmationText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.thankYouText {
+  font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.orderNumber {
+  font-size: clamp(0.875rem, 2vw, 0.9375rem);
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-weight: 500;
+}
+
+.detailsButton {
+  background: #ffffff;
+  color: var(--color-primary-dark);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+
+.detailsButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background: #fafafa;
+}
+
+.detailsButton:active {
+  transform: translateY(0);
+}
+
+.detailsButton:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   SECTION BASE STYLES
+   ======================================== */
+.pickupSection,
+.paymentSection,
+.whatsappSection {
+  background: var(--color-background);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 4vw, 2rem);
+  box-shadow: 0 1px 3px var(--color-shadow);
+  border: 1px solid var(--color-border);
+  transition: box-shadow var(--transition-base);
+}
+
+.pickupSection:hover,
+.paymentSection:hover,
+.whatsappSection:hover {
+  box-shadow: 0 4px 6px -1px var(--color-shadow), 0 2px 4px -1px var(--color-shadow);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.sectionIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.sectionTitle {
+  font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* ========================================
+   PICKUP SECTION
+   ======================================== */
+.notificationText {
+  font-size: clamp(0.875rem, 2vw, 0.9375rem);
+  color: var(--color-text-secondary);
+  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+.shipmentsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.shipmentItem {
+  background: var(--color-background-secondary);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-base);
+}
+
+.shipmentItem:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1);
+}
+
+.shipmentTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.shipmentDetail {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin: 0 0 0.5rem 0;
+}
+
+.deliverySchedule {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.deliveryDate {
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.emptyStateText {
+  font-size: 0.9375rem;
+  color: var(--color-text-tertiary);
+  text-align: center;
+  padding: 2rem;
+  margin: 0;
+  font-style: italic;
+}
+
+.globalItemsNote {
+  margin: 1.25rem 0 0 0;
+  padding: 1rem;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  color: #78350f;
+  border: 1px solid #fbbf24;
+  font-weight: 500;
+}
+
+/* ========================================
+   PAYMENT SECTION
+   ======================================== */
+.paymentDescription {
+  font-size: clamp(0.875rem, 2vw, 0.9375rem);
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ========================================
+   WHATSAPP SECTION
+   ======================================== */
+.whatsappSection {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 2px solid #86efac;
+  position: relative;
+  overflow: hidden;
+}
+
+.whatsappSection::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 20rem;
+  height: 20rem;
+  background: radial-gradient(circle, rgba(37, 211, 102, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.whatsappContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.whatsappHeader {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.whatsappIconWrapper {
+  background: var(--color-whatsapp);
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+  }
+}
+
+.whatsappIcon {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: #ffffff;
+}
+
+.whatsappTextContent {
+  flex: 1;
+}
+
+.whatsappTitle {
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.02em;
+}
+
+.whatsappDescription {
+  font-size: clamp(0.875rem, 2vw, 0.9375rem);
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.whatsappButton {
+  background: var(--color-whatsapp);
+  color: #ffffff;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  transition: all var(--transition-base);
+  width: 100%;
+  max-width: 20rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .whatsappButton {
+    width: auto;
+    margin: 0;
+  }
+}
+
+.whatsappButton:hover {
+  background: var(--color-whatsapp-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+.whatsappButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+}
+
+.whatsappButton:focus-visible {
+  outline: 3px solid rgba(37, 211, 102, 0.5);
+  outline-offset: 2px;
+}
+
+.whatsappButtonText {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.whatsappButtonIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform var(--transition-spring);
+}
+
+.whatsappButton:hover .whatsappButtonIcon {
+  transform: translateX(4px);
+}
+
+/* ========================================
+   ACCESSIBILITY & FOCUS STYLES
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .orderContainer {
+    border: 2px solid currentColor;
+  }
+  
+  .whatsappButton,
+  .detailsButton {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Dark mode support (if needed) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #f9fafb;
+    --color-text-secondary: #d1d5db;
+    --color-text-tertiary: #9ca3af;
+    --color-background: #1f2937;
+    --color-background-secondary: #111827;
+    --color-border: #374151;
+    --color-shadow: rgba(0, 0, 0, 0.3);
+    --color-shadow-hover: rgba(0, 0, 0, 0.4);
+  }
+  
+  .whatsappSection {
+    background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+    border-color: #10b981;
+  }
+}

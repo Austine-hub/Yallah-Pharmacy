@@ -1,0 +1,198 @@
+/* src/components/Shop.module.css */
+
+.shopSection {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Inter", system-ui, sans-serif;
+  color: #222;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.header{
+  font-size: clamp(1.125rem, 2.5vw, 1.75rem); /* scalable */
+  font-weight: 700;
+  color: var(--color-primary);
+  width: 100%;              /* ensures it takes full width */
+  display: block;           /* behaves like a full-width block element */
+  text-align: center;       /* centers text inside */
+  margin: 0 auto;           /* safety for margin resets */
+  line-height: 1.1;
+}
+
+.header h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #11294d;
+}
+
+.subCategory {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.subCategory label {
+  color: #555;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+
+.card {
+  background-color: #fff;
+  border: 1px solid #e3e6ec;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background-color: #f9fafc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.stockBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #16a34a;
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.details {
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.category {
+  font-size: 0.9rem;
+  color: #667085;
+  margin-bottom: 0.25rem;
+}
+
+.name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+}
+
+.price {
+  font-weight: 700;
+  color: #0b69ff;
+  font-size: 1rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 1rem 1rem;
+  border-top: 1px solid #e5e7eb;
+  gap: 0.5rem;
+}
+
+.addToCart,
+.moreInfo {
+  flex: 1;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.addToCart {
+  background-color: #0b69ff;
+  color: #fff;
+}
+
+.addToCart:hover {
+  background-color: #004fc4;
+}
+
+.moreInfo {
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+.moreInfo:hover {
+  background-color: #e3e6ec;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+.grid {
+  grid-template-columns: repeat(2, 1fr); /* exactly 2 cards per row */
+  gap: 1rem;
+}
+
+
+  .imageWrapper {
+    height: 140px;
+  }
+
+  .addToCart,
+  .moreInfo {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr 1fr; /* still two columns */
+  }
+  .card {
+    border-radius: 8px;
+  }
+  .imageWrapper {
+    height: 120px;
+  }
+}

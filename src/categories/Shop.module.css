@@ -1,0 +1,286 @@
+/* ===========================================================
+   SHOP MODULE CSS — Modern Pharmacy / Medical Theme (2025 FIXED)
+   =========================================================== */
+
+:root {
+  --color-primary: #0077b6; /* Clean medical blue */
+  --color-secondary: #00a8e1; /* Accent blue */
+  --color-bg: #f9fafc;
+  --color-surface: #ffffff;
+  --color-text-dark: #1a1a1a;
+  --color-text-muted: #6b7280;
+  --color-success: #1b9c85;
+  --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --radius: 12px;
+  --transition: all 0.3s ease;
+  --max-width: 1300px;
+}
+
+/* ==============================
+   Section Layout
+   ============================== */
+.shopSection {
+  width: 100%;
+  background: var(--color-bg);
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* ==============================
+   Header Area
+   ============================== */
+.header {
+  text-align: center;
+  width: 100%;
+  max-width: var(--max-width);
+}
+
+.title {
+  font-size: 2rem;
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.subCategorySelect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.subCategorySelect label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.dropdown {
+  background: var(--color-surface);
+  border: 2px solid var(--color-secondary);
+  border-radius: var(--radius);
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  color: var(--color-primary);
+  outline: none;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.dropdown:hover,
+.dropdown:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 168, 225, 0.2);
+}
+
+/* ==============================
+   Product Grid
+   ============================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: var(--max-width);
+  transition: var(--transition);
+}
+
+/* ==============================
+   Product Card
+   ============================== */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: fadeSlideUp 0.4s ease forwards;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  background: #eef6fb;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible; /* ✅ ensures badge never clips */
+}
+
+.image {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+/* ==============================
+   Stock Badge (Fixed)
+   ============================== */
+.stockBadge {
+  position: absolute;
+  top: -10px; /* ✅ moves badge fully outside image area */
+  right: -10px;
+  background: var(--color-success);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+  z-index: 3;
+  transform: scale(1);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.card:hover .stockBadge {
+  transform: scale(1.05);
+  background: #18b394;
+}
+
+/* ==============================
+   Product Details
+   ============================== */
+.details {
+  padding: 1rem 1.2rem;
+  text-align: center;
+}
+
+.category {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.3rem;
+}
+
+.name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  margin-bottom: 0.4rem;
+}
+
+.price {
+  font-size: 1rem;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* ==============================
+   Actions (Buttons)
+   ============================== */
+.actions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0.8rem 1rem 1.2rem;
+  border-top: 1px solid #f0f0f0;
+  background: #fafcff;
+}
+
+.addToCart,
+.moreInfo {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+.addToCart {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.addToCart:hover {
+  background: var(--color-secondary);
+}
+
+.moreInfo {
+  background: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.moreInfo:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ==============================
+   Responsive Design
+   ============================== */
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .dropdown {
+    width: 100%;
+  }
+
+  .subCategorySelect {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card {
+    font-size: 0.9rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .addToCart,
+  .moreInfo {
+    width: 100%;
+  }
+
+  .stockBadge {
+    top: -8px;
+    right: -8px;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+  }
+}
+
+/* ==============================
+   Animation
+   ============================== */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

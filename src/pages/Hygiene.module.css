@@ -1,0 +1,392 @@
+.offersSection {
+  width: 100%;
+  padding: 3rem 0;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.navButtons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.navBtn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.navBtn:hover:not(.disabled) {
+  background-color: #4caf50;
+  color: #fff;
+  border-color: #4caf50;
+  transform: scale(1.05);
+}
+
+.navBtn.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.productsWrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin: 0 -0.5rem;
+  padding: 0 0.5rem;
+}
+
+.productsWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.productsGrid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(280px, 1fr);
+  gap: 1.25rem;
+  padding-bottom: 1rem;
+}
+
+.productCard {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.25rem;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 450px;
+}
+
+.productCard:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+.trendingBadge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: linear-gradient(135deg, #ff6b35, #ff8c42);
+  color: #fff;
+  padding: 0.375rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+}
+
+.actions {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.actionBtn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #4caf50;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.actionBtn:hover {
+  background-color: #4caf50;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.productImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.productInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.productName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.productDesc {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.brandName {
+  font-size: 0.875rem;
+  color: #888;
+  margin: 0;
+}
+
+.price {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0.5rem 0 0 0;
+}
+
+.cardFooter {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.addBtn {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.addBtn:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.detailsBtn {
+  background-color: transparent;
+  color: #666;
+  border: 1px solid #e0e0e0;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  white-space: nowrap;
+}
+
+.detailsBtn:hover {
+  background-color: #f5f5f5;
+  border-color: #ccc;
+}
+
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4caf50;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+}
+
+.viewAll:hover {
+  gap: 0.75rem;
+  color: #45a049;
+}
+
+@media (max-width: 1200px) {
+  .productsGrid {
+    grid-auto-columns: minmax(260px, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .offersSection {
+    padding: 2rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .navButtons {
+    display: none;
+  }
+
+  .productsGrid {
+    grid-auto-columns: minmax(240px, 85vw);
+    gap: 1rem;
+  }
+
+  .productCard {
+    padding: 1rem;
+    min-height: 420px;
+  }
+
+  .imageWrapper {
+    height: 180px;
+  }
+
+  .cardFooter {
+    flex-direction: column;
+  }
+
+  .addBtn,
+  .detailsBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .productsGrid {
+    grid-auto-columns: minmax(220px, 90vw);
+  }
+
+  .productCard {
+    min-height: 400px;
+  }
+
+  .trendingBadge {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .actions {
+    gap: 0.375rem;
+  }
+
+  .actionBtn {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .actionBtn svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.cardFooter {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--color-primary, #0077b6);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.addBtn:hover {
+  background: #0096c7;
+}
+
+.detailsBtn {
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.detailsBtn:hover {
+  border-color: #0077b6;
+  color: #0077b6;
+}

@@ -1,0 +1,451 @@
+/* ==============================================================
+   Navbar.module.css — Clean, Optimized, Responsive (2025 Edition)
+   Aligned directly below Topbar (flush, no gap)
+   ============================================================== */
+
+/* Navbar directly below Topbar */
+.navbar {
+  position: fixed;
+  top: 12px;
+  z-index: 1000;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  margin-top: 88px; /* space below topbar */
+  margin-bottom: 32px; /* 👈 add this for gap between navbar & hero */
+  height: fit-content;
+  width: 100%;
+}
+
+
+/* When page scrolls past threshold */
+.navbar.scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Container inside navbar */
+.navContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  gap: 2rem;
+}
+
+/* ==================== LOGO ==================== */
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logoIcon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.logo:hover .logoIcon {
+  transform: scale(1.05);
+}
+
+.logoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 8px);
+  grid-template-rows: repeat(2, 8px);
+  gap: 3px;
+}
+
+.logoGrid span {
+  background: #fff;
+  border-radius: 2px;
+}
+
+/* ==================== NAVIGATION ==================== */
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  position: relative;
+}
+
+.menuDropdown {
+  position: relative;
+}
+
+/* Shared Button & Link Base */
+.menuItem,
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1f2937;
+  cursor: pointer;
+  border-radius: 6px;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.menuItem:hover,
+.navLink:hover {
+  background: #f3f4f6;
+  color: #10b981;
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+}
+
+.menuItem:hover .chevron {
+  transform: translateY(2px);
+}
+
+/* ==================== DROPDOWNS ==================== */
+.dropdownMenu,
+.dropdownMega {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  animation: dropdownFadeIn 0.2s ease;
+  z-index: 100;
+}
+
+.dropdownMenu {
+  min-width: 240px;
+  padding: 0.75rem 0;
+}
+
+.dropdownMega {
+  padding: 1.5rem;
+}
+
+.dropdownMenu li,
+.megaGrid li {
+  list-style: none;
+}
+
+.dropdownMenu li a,
+.megaGrid li a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #374151;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.dropdownMenu li a:hover,
+.megaGrid li a:hover {
+  background: #f0fdf4;
+  color: #10b981;
+  transform: translateX(4px);
+}
+
+.megaGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+/* ==================== ACTION BUTTONS ==================== */
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.actionBtn,
+.prescriptionBtn,
+.iconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.actionBtn {
+  padding: 0.65rem 1rem;
+  background: #f3f4f6;
+  color: #10b981;
+}
+
+.actionBtn:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.prescriptionBtn {
+  padding: 0.65rem 1.25rem;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.prescriptionBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+}
+
+.iconBtn {
+  width: 42px;
+  height: 42px;
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.iconBtn:hover {
+  background: #e5e7eb;
+  color: #10b981;
+  transform: translateY(-1px);
+}
+
+/* ==================== MOBILE MENU ==================== */
+.mobileMenuBtn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: #f3f4f6;
+  border: none;
+  border-radius: 8px;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mobileMenuBtn:hover {
+  background: #e5e7eb;
+  color: #10b981;
+}
+
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1700;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  max-height: calc(100vh - 70px);
+  overflow-y: auto;
+  animation: mobileMenuSlideIn 0.3s ease;
+}
+
+.mobileMenuItem,
+.mobileNavLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f9fafb;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem;
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+.mobileMenuItem:hover,
+.mobileNavLink:hover {
+  background: #f3f4f6;
+  color: #10b981;
+}
+
+.mobileDropdown {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0 0 0;
+}
+
+.mobileDropdown li a {
+  display: block;
+  padding: 0.875rem 1.25rem;
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.mobileDropdown li a:hover {
+  background: #f0fdf4;
+  color: #10b981;
+  padding-left: 1.5rem;
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mobileMenuSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1200px) {
+  .desktopNav {
+    gap: 0.25rem;
+  }
+
+  .menuItem,
+  .navLink {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .actionBtn span,
+  .prescriptionBtn span {
+    display: none;
+  }
+
+  .actionBtn,
+  .prescriptionBtn {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+  }
+
+  .megaGrid {
+    grid-template-columns: repeat(2, minmax(160px, 1fr));
+  }
+}
+
+@media (max-width: 968px) {
+  .desktopNav,
+  .navActions {
+    display: none;
+  }
+
+  .mobileMenuBtn {
+    display: flex;
+  }
+
+  .navContainer {
+    padding: 0 1rem;
+    height: 58px;
+  }
+
+  .logoIcon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    top: 0; /* still flush below Topbar */
+  }
+}
+
+@media (max-width: 480px) {
+  .navContainer {
+    padding: 0 0.75rem;
+    height: 60px;
+  }
+
+  .logoIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .mobileMenuItem,
+  .mobileNavLink {
+    font-size: 0.95rem;
+    padding: 0.875rem;
+  }
+}
+
+
+/* Mobile submenu collapse/expand */
+.mobileSubmenu {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.28s ease;
+}
+.mobileSubmenu.open {
+  max-height: 550px; /* large enough for content */
+}
+
+/* Desktop dropdown fade/slide (example) */
+.dropdownMenu {
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+.dropdownMenu.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+
+
+
+/* Ensure Navbar sits directly below Topbar on all devices */
+.navbar {
+  position: fixed;
+  top: 0px; /* height of Topbar on desktop */
+  margin-top: 100px;
+  bottom: 200px;
+  margin-bottom: 32px;
+  
+}
+
+/* On mobile screens, remove all gaps */
+@media (max-width: 768px) {
+  .navbar {
+    top: 0 !important;   /* stick directly below Topbar */
+    margin-top: 80px !important;
+  }
+}

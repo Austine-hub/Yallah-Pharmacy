@@ -1,0 +1,128 @@
+/* ==========================================================
+   RequestPrescription.module.css — Modern, Accessible Design
+   Professional Medical UI with Maroon + Teal Accents
+   ========================================================== */
+
+:root {
+  --color-primary: #8b1538;
+  --color-accent: #008080;
+  --color-bg: #f8f9fa;
+  --color-text: #222;
+  --color-border: #ddd;
+  --radius: 10px;
+  --transition: 0.3s ease-in-out;
+}
+
+.requestSection {
+  background-color: var(--color-bg);
+  padding: 4rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+}
+
+.title {
+  color: var(--color-primary);
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  text-align: center;
+  color: #555;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.formRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.formGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--color-text);
+}
+
+input,
+textarea {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(0, 128, 128, 0.15);
+  outline: none;
+}
+
+.submitBtn {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.9rem 1.2rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: var(--color-accent);
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.successMsg {
+  margin-top: 1rem;
+  color: var(--color-accent);
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .formRow {
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+}

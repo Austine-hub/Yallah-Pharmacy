@@ -1,0 +1,245 @@
+/* ============================================================
+   File: OurMissionVision.module.css
+   Purpose: Mission & Vision section — modern, clean, mobile-first
+   Theme: Professional medical / healthcare aesthetic
+   ============================================================ */
+
+:root {
+  /* === Layout & Sizing === */
+  --container-max: 1200px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --radius: 12px;
+
+  /* === Colors (Medical / Pharmacy Theme) === */
+  --color-bg: #ffffff;
+  --color-card: #f8fafc;
+  --color-accent: #0077b6; /* calm medical blue */
+  --color-accent-light: #e6f2ff;
+  --color-heading: #0f172a;
+  --color-muted: #475569;
+  --color-line: #e2e8f0;
+
+  /* === Effects === */
+  --shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  --transition: all 0.3s ease;
+}
+
+/* ============================================================
+   BASE STRUCTURE
+   ============================================================ */
+
+.container {
+  background: var(--color-bg);
+  padding: var(--space-xl) var(--space-md);
+  display: flex;
+  justify-content: center;
+  scroll-margin-top: 4rem;
+}
+
+.inner {
+  width: 100%;
+  max-width: var(--container-max);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  padding: 0 var(--space-sm);
+}
+
+.heading {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  color: var(--color-heading);
+  margin: 0 0 var(--space-sm) 0;
+  font-weight: 700;
+}
+
+.lead {
+  color: var(--color-muted);
+  margin: 0 auto;
+  max-width: 60ch;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   GRID & CARD LAYOUT
+   ============================================================ */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  width: 100%;
+}
+
+.card {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* ============================================================
+   MEDIA & IMAGE HANDLING
+   ============================================================ */
+
+.mediaWrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--color-accent-light);
+  position: relative;
+}
+
+.media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .media {
+  transform: scale(1.03);
+}
+
+/* ============================================================
+   CONTENT BLOCK
+   ============================================================ */
+
+.content {
+  padding: var(--space-md) var(--space-md) var(--space-lg);
+}
+
+.title {
+  font-size: 1.25rem;
+  margin: 0 0 var(--space-sm) 0;
+  color: var(--color-heading);
+  font-weight: 600;
+}
+
+.text {
+  color: var(--color-muted);
+  margin: 0 0 var(--space-md) 0;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* ============================================================
+   BULLET LISTS
+   ============================================================ */
+
+.bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.bullets li {
+  position: relative;
+  padding-left: 1.75rem;
+  color: var(--color-heading);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+/* ============================================================
+   FOOTER NOTE
+   ============================================================ */
+
+.footer {
+  margin-top: var(--space-xl);
+  text-align: center;
+}
+
+.small {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN — MOBILE FIRST
+   ============================================================ */
+
+/* Tablets and larger (≥768px) */
+@media screen and (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+  }
+
+  .mediaWrap {
+    aspect-ratio: 4 / 3;
+  }
+
+  .content {
+    padding: calc(var(--space-md) * 1.25) var(--space-lg);
+  }
+}
+
+/* Desktop refinements (≥1100px) */
+@media screen and (min-width: 1100px) {
+  .heading {
+    font-size: 2rem;
+  }
+
+  .title {
+    font-size: 1.375rem;
+  }
+
+  .lead {
+    font-size: 1.1rem;
+  }
+
+  .card {
+    transition: all 0.35s ease;
+  }
+}
+
+/* High contrast / accessibility focus */
+@media (prefers-contrast: more) {
+  .card {
+    border: 1px solid var(--color-line);
+    box-shadow: none;
+  }
+
+  .bullets li::before {
+    background: var(--color-heading);
+  }
+}

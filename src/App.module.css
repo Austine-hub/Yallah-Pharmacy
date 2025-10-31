@@ -1,0 +1,34 @@
+   /* App.module.css */
+:root {
+  --header-height:87px;
+}
+
+   
+   
+   .headerSpacer {
+  height: var(--header-height, 90px);
+  width: 100%;
+}
+
+
+@media (max-width: 768px) {
+  .headerSpacer {
+    height: 50px !important ; /* smaller header on mobile */
+  }
+}
+
+
+
+
+/* ===== Responsive Visibility Control ===== */
+@media (min-width: 1025px) {
+  .bottomNav {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .bottomNav {
+    display: flex !important;
+  }
+}
