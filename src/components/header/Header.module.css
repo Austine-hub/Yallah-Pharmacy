@@ -937,7 +937,7 @@
   }
 
   .mobileSearchBar {
-    padding: 0 12px 10px 0;
+    padding: 0 12px 0 12px;
   }
 
   .mobileSearchBar .searchInput {
