@@ -946,16 +946,16 @@
   }
 
   .mobileActionButtons {
-    padding: 10px 12px;
+    padding: 0px;
     gap: 6px;
   }
 
   .prescriptionButton,
   .consultationButton {
     padding: 10px 12px;
-    font-size: 12px;
+    font-size: 22px;
   }
-
+ 
   .mobileDeliverTo {
     padding: 8px 12px;
     font-size: 12px;
