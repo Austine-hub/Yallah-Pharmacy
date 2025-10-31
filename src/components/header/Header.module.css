@@ -937,7 +937,7 @@
   }
 
   .mobileSearchBar {
-    padding: 0 12px 10px 12px;
+    padding: 0 12px 10px 0;
   }
 
   .mobileSearchBar .searchInput {
@@ -953,7 +953,7 @@
   .prescriptionButton,
   .consultationButton {
     padding: 10px 12px;
-    font-size: 22px;
+    font-size: 15px;
   }
  
   .mobileDeliverTo {
