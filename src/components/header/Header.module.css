@@ -1021,3 +1021,23 @@
     background: #374151;
   }
 }
+
+@media (max-width: 768px) {
+  .headerActions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .iconButton,
+  .cartButton {
+    width: 44px;
+    height: 44px;
+    gap:25px;
+  }
+
+  .cartButton {
+    margin-left: 4px;
+  }
+}

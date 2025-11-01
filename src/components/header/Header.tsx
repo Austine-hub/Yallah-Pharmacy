@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
+import { User, ShoppingCart, Heart } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import styles from './Header.module.css';
 import logo from "/icon.ico"; // adjust path if needed
 
@@ -21,6 +23,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ onSearch }) => {
+   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [deliveryLocation] = useState('Juja');
@@ -185,21 +188,25 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
               </div>
 
               <div className={styles.headerActions}>
-                <button className={styles.iconButton} aria-label="My Account">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="2"/>
-                    <path d="M4 20C4 16.6863 6.68629 14 10 14H14C17.3137 14 20 16.6863 20 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                  </svg>
+
+                {/* 👤 Account Button */}
+                <button
+                
+                  className={styles.iconButton}
+                  aria-label="My Account"
+                  onClick={() => navigate("/login")}
+                >
+                  <User size={26} strokeWidth={2.2} />
                 </button>
+
+                {/* ❤️ Wishlist Button */}
                 <button className={styles.iconButton} aria-label="Wishlist">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5C22 12.27 18.6 15.36 13.45 20.03L12 21.35Z" stroke="currentColor" strokeWidth="2"/>
-                  </svg>
+                  <Heart size={26} strokeWidth={2.2} />
                 </button>
+
+                {/* 🛒 Cart Button */}
                 <button className={styles.cartButton} aria-label="Shopping Cart">
-                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-                    <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.70711 15.2929C4.07714 15.9229 4.52331 17 5.41421 17H17M17 17C15.8954 17 15 17.8954 15 19C15 20.1046 15.8954 21 17 21C18.1046 21 19 20.1046 19 19C19 17.8954 18.1046 17 17 17ZM9 19C9 20.1046 8.10457 21 7 21C5.89543 21 5 20.1046 5 19C5 17.8954 5.89543 17 7 17C8.10457 17 9 17.8954 9 19Z" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  <ShoppingCart size={28} strokeWidth={2.2} />
                   {cartCount > 0 && <span className={styles.cartBadge}>{cartCount}</span>}
                 </button>
               </div>
@@ -275,6 +282,15 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
                 <span className={styles.logoTagline}>caring beyond drugs</span>
               </a>
             </div>
+
+               <button
+                
+                  className={styles.iconButton}
+                  aria-label="My Account"
+                  onClick={() => navigate("/login")}
+                >
+                  <User size={26} strokeWidth={2.2} />
+                </button>
 
             <button className={styles.mobileCartButton} aria-label="Shopping Cart">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
