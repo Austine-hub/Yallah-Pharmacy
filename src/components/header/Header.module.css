@@ -428,6 +428,9 @@
   flex-shrink: 0;
 }
 
+
+
+
 /* ========================================
    MOBILE HEADER - OPTIMIZED & CONSISTENT
    ======================================== */
@@ -931,6 +934,15 @@
   .mobileDeliverTo {
     font-size: 12px;
   }
+
+  @media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+    gap: 12px;
+    flex-wrap: wrap; /* ✅ Prevent overflow */
+  }
+}
+
 }
 
 /* ========================================
@@ -969,6 +981,15 @@
     font-size: 14px;
     padding: 8px 14px;
   }
+
+  @media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+    gap: 12px;
+    flex-wrap: wrap; /* ✅ Prevent overflow */
+  }
+}
+
 }
 
 /* ========================================
