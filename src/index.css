@@ -58,7 +58,7 @@ body {
   margin: 0;
   font-family: var(--font-family-base);
   line-height: var(--line-height-base);
-  background-color: var(--color-bg);
+  background-color: whitesmoke!important;
   color: var(--color-text);
   overflow-x: hidden; /* Prevent unwanted horizontal scroll */
   -webkit-font-smoothing: antialiased;
