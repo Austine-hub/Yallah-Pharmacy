@@ -81,6 +81,8 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
         ],
       },
 
+      { label: "Our Blog", key: "blog", path: "/blog" },
+
       { label: "Contact Us", key: "contact", path: "/contact-us" },
     ],
     []

@@ -1,0 +1,173 @@
+/* Container for the entire promo banners section */
+.promoBannersContainer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Wrapper for the banners - flex container */
+.bannersWrapper {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* Individual banner item */
+.bannerItem {
+  position: relative;
+  flex: 1;
+  max-width: 600px;
+  min-width: 280px;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.bannerItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.bannerItem:focus {
+  outline: 3px solid #4a90e2;
+  outline-offset: 2px;
+}
+
+.bannerItem:active {
+  transform: translateY(-2px);
+}
+
+/* Banner image */
+.bannerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.bannerItem:hover .bannerImage {
+  transform: scale(1.05);
+}
+
+/* Overlay that appears on hover */
+.bannerOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.bannerItem:hover .bannerOverlay,
+.bannerItem:focus .bannerOverlay {
+  opacity: 1;
+}
+
+/* Text that appears on hover */
+.viewOffersText {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 12px 24px;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.bannerItem:hover .viewOffersText {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Tablet responsiveness */
+@media (max-width: 1024px) {
+  .promoBannersContainer {
+    padding: 16px;
+  }
+
+  .bannersWrapper {
+    gap: 16px;
+  }
+
+  .viewOffersText {
+    font-size: 1.25rem;
+    padding: 10px 20px;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .bannersWrapper {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .bannerItem {
+    max-width: 100%;
+    min-width: auto;
+  }
+
+  .viewOffersText {
+    font-size: 1.1rem;
+    padding: 8px 16px;
+  }
+
+  .promoBannersContainer {
+    padding: 12px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .promoBannersContainer {
+    padding: 8px;
+  }
+
+  .bannersWrapper {
+    gap: 12px;
+  }
+
+  .bannerItem {
+    border-radius: 8px;
+  }
+
+  .viewOffersText {
+    font-size: 1rem;
+    padding: 6px 12px;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* Accessibility: Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .bannerItem,
+  .bannerImage,
+  .bannerOverlay,
+  .viewOffersText {
+    transition: none;
+  }
+
+  .bannerItem:hover {
+    transform: none;
+  }
+
+  .bannerItem:hover .bannerImage {
+    transform: none;
+  }
+}

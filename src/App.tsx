@@ -64,6 +64,9 @@ import EyeEar from "./conditions/EyeEar";
 import OralCare from "./conditions/Oral";
 import SkinDrugs from "./conditions/SkinInfection";
 import Prescription from "./dropdowns/Prescription";
+import PromoBanners from "./promo/PromoBanners";
+import WellnessBanner from "./promo/WellnessBanner";
+import BlogSection from "./blog/BlogSection";
 
 // ===============================================================
 // 🧠 Lazy-loaded Routes for Performance Optimization
@@ -156,7 +159,9 @@ const App: FC = () => (
               <>
                 <Hero />
                 <Offers1/> 
+                <PromoBanners/> 
                 <Shop/>
+                <WellnessBanner/>
                 <Offers />  
                 <ProductCarousel/>
                 <BestSellers /> 
@@ -164,6 +169,7 @@ const App: FC = () => (
                 <Offers1/>           
                 <ShopByCategory />
                 <BeautyProducts />
+                <BlogSection/>
 
               </>
             }

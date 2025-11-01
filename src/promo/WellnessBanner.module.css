@@ -1,0 +1,132 @@
+/* 🌿 WELLNESS BANNER MODULE - Optimized & Balanced */
+
+/* Container for the entire wellness banner section */
+.wellnessContainer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Wrapper for the two banner cards */
+.bannerWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  align-items: stretch; /* 🔹 Ensures equal height columns */
+}
+
+/* Individual banner card styling */
+.bannerCard {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* 🔹 Equal height-to-width ratio for all banners */
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover and focus states for better UX */
+.bannerCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.bannerCard:focus {
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.4);
+  transform: translateY(-2px);
+}
+
+.bannerCard:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Banner image styling */
+.bannerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: fill; /* 🔹 Ensures both images perfectly fill the card */
+  display: block;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.bannerCard:hover .bannerImage {
+  opacity: 0.95;
+  transform: scale(1.02); /* Gentle zoom effect */
+}
+
+/* Tablet responsiveness */
+@media (max-width: 1024px) {
+  .wellnessContainer {
+    padding: 0.875rem;
+  }
+
+  .bannerWrapper {
+    gap: 1.25rem;
+  }
+}
+
+/* Mobile responsiveness - stack vertically */
+@media (max-width: 768px) {
+  .wellnessContainer {
+    padding: 0.75rem;
+  }
+
+  .bannerWrapper {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .bannerCard {
+    aspect-ratio: 16 / 9; /* 🔹 Keeps same look even stacked */
+    border-radius: 10px;
+  }
+
+  .bannerCard:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .wellnessContainer {
+    padding: 0.5rem;
+  }
+
+  .bannerWrapper {
+    gap: 0.75rem;
+  }
+
+  .bannerCard {
+    aspect-ratio: 4 / 3; /* 🔹 Slightly taller on small screens for better visibility */
+    border-radius: 8px;
+  }
+}
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bannerCard,
+  .bannerImage {
+    transition: none;
+  }
+
+  .bannerCard:hover {
+    transform: none;
+  }
+}
+
+/* Accessibility: High contrast mode */
+@media (prefers-contrast: high) {
+  .bannerCard:focus {
+    outline: 3px solid currentColor;
+    outline-offset: 2px;
+  }
+}
