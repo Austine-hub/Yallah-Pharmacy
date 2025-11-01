@@ -1,7 +1,8 @@
 /* ===============================================================
-   ✅ Global Stylesheet (index.css)
-   - Mobile-first, theme-aware, clean scalable layout
-   - Works perfectly with App.tsx (2025 version)
+   ✅ index.css — 2025 Overflow & Responsiveness Fixed
+   ---------------------------------------------------------------
+   - Removes horizontal scroll & "dancing" on mobile
+   - Mobile-first, clean & scalable
 ================================================================ */
 
 /* ------------------------------
@@ -12,7 +13,7 @@
   --font-size-base: 16px;
   --line-height-base: 1.6;
 
-  --color-bg: #ffffff;
+  --color-bg: #ffffff!important;
   --color-text: #1e293b;
   --color-accent: #0f766e;
   --color-muted: #64748b;
@@ -25,11 +26,10 @@
   --radius-base: 12px;
   --transition-base: all 0.3s ease;
 
-  /* Light/Dark mode support */
   color-scheme: light dark;
 }
 
-/* Dark Theme (optional if ThemeProvider switches classes) */
+/* Optional: Dark theme support */
 [data-theme="dark"] {
   --color-bg: #0f172a;
   --color-text: #e2e8f0;
@@ -47,58 +47,71 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  max-width: 100%; /* Prevent children from overflowing containers */
 }
 
 html {
   scroll-behavior: smooth;
   font-size: var(--font-size-base);
+  width: 100%;
+  overflow-x: hidden !important;
 }
 
 body {
   margin: 0;
+  padding: 0;
+  width: 100%;
   font-family: var(--font-family-base);
   line-height: var(--line-height-base);
-  background-color: whitesmoke!important;
+  background-color: var(--color-bg);
   color: var(--color-text);
-  overflow-x: hidden; /* Prevent unwanted horizontal scroll */
+  overflow-x: hidden !important;
+  overscroll-behavior-x: none;
+  -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Remove default link styles */
+/* Remove default link & image issues */
 a {
   text-decoration: none;
   color: inherit;
   transition: var(--transition-base);
 }
-
 a:hover,
 a:focus {
   color: var(--color-accent);
 }
-
-/* Remove image stretching & preserve ratio */
 img {
-  max-width: 100%;
-  height: auto;
   display: block;
+  width: 100%;
+  height: auto;
   border-radius: var(--radius-base);
+  object-fit: contain;
+  max-width: 100%;
 }
 
-/* Global containers */
+/* ------------------------------
+   ⚙️ Layout
+------------------------------ */
 main {
   width: 100%;
   margin: 0 auto;
   max-width: var(--max-width);
   padding: 0 1rem;
+  overflow-x: hidden;
 }
 
-/* ------------------------------
-   🧭 Layout Helpers
------------------------------- */
 .headerSpacer {
   height: var(--header-height);
 }
 
+header,
+footer {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Footer */
 footer {
   background-color: var(--footer-bg);
   margin-top: 2rem;
@@ -108,7 +121,7 @@ footer {
   border-top: 1px solid var(--color-border);
 }
 
-/* For bottom navigation */
+/* Bottom Navigation (mobile sticky bar) */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -121,26 +134,7 @@ footer {
   justify-content: space-around;
   align-items: center;
   padding: 0.6rem 0;
-}
-
-/* ------------------------------
-   ⚡ Typography
------------------------------- */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--color-text);
-  font-weight: 600;
-  line-height: 1.3;
-  margin: 1rem 0 0.5rem;
-}
-
-p {
-  margin: 0 0 1rem;
-  color: var(--color-muted);
-}
-
-ul, ol {
-  padding-left: 1.2rem;
-  margin: 0 0 1rem;
+  overflow-x: hidden;
 }
 
 /* ------------------------------
@@ -151,7 +145,7 @@ ul, ol {
   outline-offset: 3px;
 }
 
-/* Scrollbar (WebKit) */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -165,17 +159,32 @@ ul, ol {
 }
 
 /* ------------------------------
-   🧱 Responsive Design
+   🧱 Typography
+------------------------------ */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text);
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 1rem 0 0.5rem;
+}
+
+p {
+  margin: 0 0 1rem;
+  color: var(--color-muted);
+}
+
+/* ------------------------------
+   📱 Responsive Design
 ------------------------------ */
 
-/* Small Devices (Phones ≤600px) */
+/* Mobile-first */
 @media (max-width: 600px) {
   :root {
     --header-height: 90px;
   }
 
-  body {
-    font-size: 15px;
+  html, body {
+    overflow-x: hidden !important;
   }
 
   main {
@@ -184,16 +193,20 @@ ul, ol {
 
   footer {
     font-size: 0.85rem;
-    padding: 1.5rem 0.8rem 5rem; /* Space for BottomNav */
+    padding: 1.5rem 0.8rem 5rem; /* add space for bottom nav */
   }
 
   .bottom-nav {
     font-size: 0.85rem;
     padding: 0.4rem 0;
   }
+
+  img {
+    border-radius: 10px;
+  }
 }
 
-/* Tablets (600px–1024px) */
+/* Tablets */
 @media (min-width: 601px) and (max-width: 1024px) {
   :root {
     --header-height: 100px;
@@ -208,7 +221,7 @@ ul, ol {
   }
 }
 
-/* Large Screens (≥1025px) */
+/* Desktops */
 @media (min-width: 1025px) {
   main {
     padding: 0 2rem;
@@ -220,13 +233,12 @@ ul, ol {
 }
 
 /* ------------------------------
-   🌈 Animations & Motion
+   🌈 Animations
 ------------------------------ */
 .fade-in {
   opacity: 0;
   animation: fadeIn 0.6s ease-in-out forwards;
 }
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -238,11 +250,21 @@ ul, ol {
   }
 }
 
-/* Smooth hover scaling for cards/buttons/images */
-.hover-scale {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* ------------------------------
+   🧍 Extra Safeguards
+------------------------------ */
+
+/* Prevent animation overflow or bounce */
+section, div, article, aside, nav {
+  max-width: 100vw;
+  overflow-x: clip; /* modern fix for mobile bounce */
 }
-.hover-scale:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+/* Prevent framer-motion & carousel elements from causing layout shift */
+[motion-div],
+[role="region"],
+.slick-slider,
+.carousel-container {
+  max-width: 100%;
+  overflow: hidden !important;
 }

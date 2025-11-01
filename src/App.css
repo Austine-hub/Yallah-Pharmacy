@@ -1,0 +1,193 @@
+/* ===============================================================
+   ✅ App.module.css — Clean Separation for App.tsx
+   ---------------------------------------------------------------
+   Replaces inline styles with responsive, scalable classes.
+================================================================ */
+
+/* ------------------------------
+   🌐 Global Layout
+------------------------------ */
+
+.appContainer {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+/* ==============================
+   🧭 Header + Spacer
+============================== */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: var(--header-bg);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.headerSpacer {
+  height: var(--header-height);
+  flex-shrink: 0;
+}
+
+/* ==============================
+   🧩 Main Content
+============================== */
+
+.main {
+  display: block;
+  padding-top: var(--header-height);
+  width: 100%;
+  flex: 1;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  overflow-x: hidden;
+}
+
+.mainLoading {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* ==============================
+   🧠 404 Page Styles
+============================== */
+
+.notFoundSection {
+  text-align: center;
+  padding: 4rem 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+.notFoundTitle {
+  margin-bottom: 1rem;
+  color: #7a0c2e;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.notFoundText {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+/* ==============================
+   🧾 Footer
+============================== */
+
+.footer {
+  background-color: var(--footer-bg);
+  border-top: 1px solid var(--color-border);
+  margin-top: 2rem;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--color-muted);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ==============================
+   📱 Bottom Navigation
+============================== */
+
+.bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--header-bg);
+  border-top: 1px solid var(--color-border);
+  z-index: 999;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.6rem 0;
+  overflow-x: hidden;
+}
+
+/* ==============================
+   💫 Animations
+============================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+/* ==============================
+   🧱 Responsive Design
+============================== */
+
+/* Small screens */
+@media (max-width: 600px) {
+  :root {
+    --header-height: 90px;
+  }
+
+  .main {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+
+  .footer {
+    font-size: 0.85rem;
+    padding: 1.5rem 0.8rem 5rem;
+  }
+
+  .bottomNav {
+    font-size: 0.85rem;
+    padding: 0.4rem 0;
+  }
+}
+
+/* Tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+  :root {
+    --header-height: 100px;
+  }
+
+  .main {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .footer {
+    padding: 2rem 1.5rem 5rem;
+  }
+}
+
+/* Desktops */
+@media (min-width: 1025px) {
+  .main {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .footer {
+    padding: 2.5rem 2rem;
+  }
+}
