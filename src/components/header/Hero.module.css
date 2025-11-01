@@ -266,7 +266,7 @@
 }
 
 @media (max-width: 640px) {
-  .mainHero { height: 66vh; }
+  .mainHero { height: 26vh; }
   .mainTitle { font-size: 1.25rem; }
   .mainSubtitle { font-size: 0.95rem; }
   .cta { padding: 7px 12px; }
