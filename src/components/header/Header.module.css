@@ -1,4 +1,4 @@
-/* Header.module.css */
+/* Header.module.css - Optimized & Mobile-Friendly */
 
 /* ========================================
    RESET AND BASE STYLES
@@ -64,40 +64,6 @@
   gap: 32px;
 }
 
-/* Logo */
-.logo a {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-}
-
-.logoText {
-  display: flex;
-  align-items: baseline;
-  font-weight: 700;
-  font-size: 28px;
-  line-height: 1;
-  letter-spacing: -0.5px;
-}
-
-.logoHealth {
-  color: #7cb342;
-}
-
-.logoField {
-  color: #e91e63;
-}
-
-.logoTagline {
-  font-size: 11px;
-  color: #666666;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-  margin-left: 2px;
-}
-
-
 /* Logo Section */
 .logo {
   display: flex;
@@ -130,7 +96,6 @@
   border-radius: 50%;
 }
 
-/* Text group next to the image */
 .logoTextGroup {
   display: flex;
   flex-direction: column;
@@ -162,25 +127,6 @@
   letter-spacing: 0.3px;
   margin-top: 3px;
 }
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .logo {
-    gap: 10px;
-  }
-  .logoContainer {
-    width: 50px;
-    height: 50px;
-  }
-  .logoText {
-    font-size: 22px;
-  }
-  .logoTagline {
-    font-size: 9px;
-  }
-}
-
-
 
 /* Search Bar */
 .searchBar {
@@ -483,7 +429,7 @@
 }
 
 /* ========================================
-   MOBILE HEADER
+   MOBILE HEADER - OPTIMIZED & CONSISTENT
    ======================================== */
 
 @media (max-width: 1024px) {
@@ -494,19 +440,34 @@
   .mobileHeader {
     display: block;
     background: #ffffff;
+    width: 100%;
+    overflow-x: hidden;
   }
 
+  /* All mobile sections have consistent horizontal padding */
+  .mobileTopBar,
+  .mobileSearchBar,
+  .mobileActionButtons,
+  .mobileDeliverTo {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Mobile Top Bar */
   .mobileTopBar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 16px;
+    gap: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
     border-bottom: 1px solid #e5e7eb;
   }
 
   .menuToggle {
     width: 40px;
     height: 40px;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -521,17 +482,20 @@
   }
 
   .menuToggle span {
-    width: 24px;
+    width: 22px;
     height: 2.5px;
     background: #1f2937;
     border-radius: 2px;
     transition: all 0.3s ease;
   }
 
+  /* Mobile Logo - Centered */
   .mobileLogo {
     flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
+    min-width: 0;
   }
 
   .mobileLogo a {
@@ -546,6 +510,7 @@
     line-height: 1;
     display: flex;
     align-items: baseline;
+    white-space: nowrap;
   }
 
   .mobileLogo .logoTagline {
@@ -555,12 +520,33 @@
     letter-spacing: 0.3px;
     margin-top: 2px;
     text-align: center;
+    white-space: nowrap;
+  }
+
+  /* Mobile Icons */
+  .iconButton {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #4b5563;
+    background: #f9fafb;
+    transition: all 0.2s ease;
+  }
+
+  .iconButton:active {
+    background: #f3f4f6;
+    color: #7cb342;
   }
 
   .mobileCartButton {
     position: relative;
     width: 40px;
     height: 40px;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -576,9 +562,11 @@
     transform: scale(0.95);
   }
 
+  /* Mobile Search Bar - Consistent spacing */
   .mobileSearchBar {
     position: relative;
-    padding: 0 16px 12px 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
     border-bottom: 1px solid #e5e7eb;
   }
 
@@ -598,22 +586,27 @@
   }
 
   .mobileSearchBar .searchButton {
+    position: absolute;
     right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
     width: 36px;
     height: 36px;
     color: #6b7280;
+    border-radius: 6px;
   }
 
   .mobileSearchBar .searchButton:active {
     background: #f3f4f6;
     color: #7cb342;
-    border-radius: 6px;
   }
 
+  /* Mobile Action Buttons - Consistent spacing */
   .mobileActionButtons {
     display: flex;
-    gap: 8px;
-    padding: 12px 16px;
+    gap: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
     border-bottom: 1px solid #e5e7eb;
   }
 
@@ -621,7 +614,7 @@
   .consultationButton {
     flex: 1;
     padding: 12px 16px;
-    background: #7cb342 !important;
+    background: #7cb342;
     color: #ffffff;
     font-size: 13px;
     font-weight: 600;
@@ -629,27 +622,39 @@
     transition: all 0.2s ease;
     text-align: center;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .prescriptionButton:active,
   .consultationButton:active {
-    background: #689f38!important;
+    background: #689f38;
     transform: scale(0.98);
   }
 
+  /* Mobile Deliver To - Consistent spacing */
   .mobileDeliverTo {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
     background: #fef3c7;
     color: #92400e;
     font-size: 13px;
     font-weight: 500;
+    border-bottom: 1px solid #e5e7eb;
+    overflow: hidden;
   }
 
   .mobileDeliverTo svg {
     flex-shrink: 0;
+  }
+
+  .mobileDeliverTo span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .mobileDeliverTo strong {
@@ -868,10 +873,71 @@
 }
 
 /* ========================================
-   RESPONSIVE BREAKPOINTS
+   SMALLER MOBILE DEVICES (480px and below)
    ======================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+  /* Consistent smaller padding for all sections */
+  .mobileTopBar,
+  .mobileSearchBar,
+  .mobileActionButtons,
+  .mobileDeliverTo {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .mobileMenu {
+    width: 90%;
+  }
+
+  .menuToggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .menuToggle span {
+    width: 20px;
+  }
+
+  .iconButton,
+  .mobileCartButton {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mobileLogo .logoText {
+    font-size: 16px;
+  }
+
+  .mobileLogo .logoTagline {
+    font-size: 7px;
+  }
+
+  .mobileSearchBar .searchInput {
+    height: 40px;
+    font-size: 13px;
+  }
+
+  .mobileActionButtons {
+    gap: 8px;
+  }
+
+  .prescriptionButton,
+  .consultationButton {
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+
+  .mobileDeliverTo {
+    font-size: 12px;
+  }
+}
+
+/* ========================================
+   TABLET RESPONSIVE (768px - 1024px)
+   ======================================== */
+
+@media (max-width: 768px) and (min-width: 481px) {
   .topBar {
     padding: 16px 0;
   }
@@ -902,63 +968,6 @@
   .phoneNumber {
     font-size: 14px;
     padding: 8px 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .mobileMenu {
-    width: 90%;
-  }
-
-  .mobileTopBar {
-    padding: 10px 12px;
-  }
-
-  .menuToggle {
-    width: 36px;
-    height: 36px;
-  }
-
-  .menuToggle span {
-    width: 22px;
-  }
-
-  .mobileCartButton {
-    width: 36px;
-    height: 36px;
-  }
-
-  .mobileLogo .logoText {
-    font-size: 16px;
-  }
-
-  .mobileLogo .logoTagline {
-    font-size: 7px;
-  }
-
-  .mobileSearchBar {
-    padding: 0 12px 0 12px;
-  }
-
-  .mobileSearchBar .searchInput {
-    height: 40px;
-    font-size: 13px;
-  }
-
-  .mobileActionButtons {
-    padding: 0 12px 0 12px;
-    gap: 6px;
-  }
-
-  .prescriptionButton,
-  .consultationButton {
-    padding: 10px 12px;
-    font-size: 15px;
-  }
- 
-  .mobileDeliverTo {
-    padding: 0 12px 0 12px;
-    font-size: 12px;
   }
 }
 
@@ -1006,7 +1015,7 @@
   }
 }
 
-/* Dark mode support (optional) */
+/* Dark mode support */
 @media (prefers-color-scheme: dark) {
   .dropdown {
     background: #1f2937;
@@ -1019,25 +1028,5 @@
 
   .dropdown a:hover {
     background: #374151;
-  }
-}
-
-@media (max-width: 768px) {
-  .headerActions {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
-  }
-
-  .iconButton,
-  .cartButton {
-    width: 44px;
-    height: 44px;
-    gap:25px;
-  }
-
-  .cartButton {
-    margin-left: 4px;
   }
 }
