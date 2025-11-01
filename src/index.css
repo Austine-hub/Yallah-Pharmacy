@@ -1,0 +1,248 @@
+/* ===============================================================
+   ✅ Global Stylesheet (index.css)
+   - Mobile-first, theme-aware, clean scalable layout
+   - Works perfectly with App.tsx (2025 version)
+================================================================ */
+
+/* ------------------------------
+   🌐 Root Variables
+------------------------------ */
+:root {
+  --font-family-base: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.6;
+
+  --color-bg: #ffffff;
+  --color-text: #1e293b;
+  --color-accent: #0f766e;
+  --color-muted: #64748b;
+  --color-border: #e2e8f0;
+  --header-bg: #ffffff;
+  --footer-bg: #f8fafc;
+
+  --max-width: 1400px;
+  --header-height: 120px;
+  --radius-base: 12px;
+  --transition-base: all 0.3s ease;
+
+  /* Light/Dark mode support */
+  color-scheme: light dark;
+}
+
+/* Dark Theme (optional if ThemeProvider switches classes) */
+[data-theme="dark"] {
+  --color-bg: #0f172a;
+  --color-text: #e2e8f0;
+  --color-accent: #22d3ee;
+  --color-muted: #94a3b8;
+  --header-bg: #1e293b;
+  --footer-bg: #0f172a;
+  --color-border: #334155;
+}
+
+/* ------------------------------
+   🧩 Reset & Base
+------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: var(--font-size-base);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-base);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden; /* Prevent unwanted horizontal scroll */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Remove default link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-base);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-accent);
+}
+
+/* Remove image stretching & preserve ratio */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-base);
+}
+
+/* Global containers */
+main {
+  width: 100%;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding: 0 1rem;
+}
+
+/* ------------------------------
+   🧭 Layout Helpers
+------------------------------ */
+.headerSpacer {
+  height: var(--header-height);
+}
+
+footer {
+  background-color: var(--footer-bg);
+  margin-top: 2rem;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--color-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+/* For bottom navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--header-bg);
+  border-top: 1px solid var(--color-border);
+  z-index: 999;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.6rem 0;
+}
+
+/* ------------------------------
+   ⚡ Typography
+------------------------------ */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text);
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 1rem 0 0.5rem;
+}
+
+p {
+  margin: 0 0 1rem;
+  color: var(--color-muted);
+}
+
+ul, ol {
+  padding-left: 1.2rem;
+  margin: 0 0 1rem;
+}
+
+/* ------------------------------
+   🧠 Accessibility
+------------------------------ */
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Scrollbar (WebKit) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-muted);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* ------------------------------
+   🧱 Responsive Design
+------------------------------ */
+
+/* Small Devices (Phones ≤600px) */
+@media (max-width: 600px) {
+  :root {
+    --header-height: 90px;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  main {
+    padding: 0 0.8rem;
+  }
+
+  footer {
+    font-size: 0.85rem;
+    padding: 1.5rem 0.8rem 5rem; /* Space for BottomNav */
+  }
+
+  .bottom-nav {
+    font-size: 0.85rem;
+    padding: 0.4rem 0;
+  }
+}
+
+/* Tablets (600px–1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  :root {
+    --header-height: 100px;
+  }
+
+  main {
+    padding: 0 1.5rem;
+  }
+
+  footer {
+    padding: 2rem 1.5rem 5rem;
+  }
+}
+
+/* Large Screens (≥1025px) */
+@media (min-width: 1025px) {
+  main {
+    padding: 0 2rem;
+  }
+
+  footer {
+    padding: 2.5rem 2rem;
+  }
+}
+
+/* ------------------------------
+   🌈 Animations & Motion
+------------------------------ */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth hover scaling for cards/buttons/images */
+.hover-scale {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-scale:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
