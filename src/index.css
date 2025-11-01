@@ -5,7 +5,7 @@ html,
 body {
   overflow-x: hidden !important;
   width: 100%;
-  max-width: 100vw;
+  max-width: 100%!important;
 }
 
 /* Prevent nested containers or menus from exceeding screen width */
@@ -15,7 +15,7 @@ main,
 footer,
 div,
 section {
-  max-width: 100vw;
+  max-width: 100%!important;
   box-sizing: border-box;
 }
 
