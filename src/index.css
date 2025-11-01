@@ -1,270 +1,44 @@
-/* ===============================================================
-   ✅ index.css — 2025 Overflow & Responsiveness Fixed
-   ---------------------------------------------------------------
-   - Removes horizontal scroll & "dancing" on mobile
-   - Mobile-first, clean & scalable
-================================================================ */
-
-/* ------------------------------
-   🌐 Root Variables
------------------------------- */
-:root {
-  --font-family-base: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-size-base: 16px;
-  --line-height-base: 1.6;
-
-  --color-bg: #ffffff!important;
-  --color-text: #1e293b;
-  --color-accent: #0f766e;
-  --color-muted: #64748b;
-  --color-border: #e2e8f0;
-  --header-bg: #ffffff;
-  --footer-bg: #f8fafc;
-
-  --max-width: 1400px;
-  --header-height: 120px;
-  --radius-base: 12px;
-  --transition-base: all 0.3s ease;
-
-  color-scheme: light dark;
-}
-
-/* Optional: Dark theme support */
-[data-theme="dark"] {
-  --color-bg: #0f172a;
-  --color-text: #e2e8f0;
-  --color-accent: #22d3ee;
-  --color-muted: #94a3b8;
-  --header-bg: #1e293b;
-  --footer-bg: #0f172a;
-  --color-border: #334155;
-}
-
-/* ------------------------------
-   🧩 Reset & Base
------------------------------- */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  max-width: 100%; /* Prevent children from overflowing containers */
-}
-
-html {
-  scroll-behavior: smooth;
-  font-size: var(--font-size-base);
-  width: 100%;
-  overflow-x: hidden !important;
-}
-
+/* ======================================================
+   🧱 Overflow Fix (Preserve Menus + Prevent Scrollbars)
+====================================================== */
+html,
 body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  font-family: var(--font-family-base);
-  line-height: var(--line-height-base);
-  background-color: var(--color-bg);
-  color: var(--color-text);
   overflow-x: hidden !important;
-  overscroll-behavior-x: none;
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Remove default link & image issues */
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: var(--transition-base);
-}
-a:hover,
-a:focus {
-  color: var(--color-accent);
-}
-img {
-  display: block;
   width: 100%;
-  height: auto;
-  border-radius: var(--radius-base);
-  object-fit: contain;
-  max-width: 100%;
-}
-
-/* ------------------------------
-   ⚙️ Layout
------------------------------- */
-main {
-  width: 100%;
-  margin: 0 auto;
-  max-width: var(--max-width);
-  padding: 0 1rem;
-  overflow-x: hidden;
-}
-
-.headerSpacer {
-  height: var(--header-height);
-}
-
-header,
-footer {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-/* Footer */
-footer {
-  background-color: var(--footer-bg);
-  margin-top: 2rem;
-  padding: 2rem 1rem;
-  text-align: center;
-  color: var(--color-muted);
-  border-top: 1px solid var(--color-border);
-}
-
-/* Bottom Navigation (mobile sticky bar) */
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: var(--header-bg);
-  border-top: 1px solid var(--color-border);
-  z-index: 999;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0.6rem 0;
-  overflow-x: hidden;
-}
-
-/* ------------------------------
-   🧠 Accessibility
------------------------------- */
-:focus-visible {
-  outline: 3px solid var(--color-accent);
-  outline-offset: 3px;
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-muted);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent);
-}
-
-/* ------------------------------
-   🧱 Typography
------------------------------- */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--color-text);
-  font-weight: 600;
-  line-height: 1.3;
-  margin: 1rem 0 0.5rem;
-}
-
-p {
-  margin: 0 0 1rem;
-  color: var(--color-muted);
-}
-
-/* ------------------------------
-   📱 Responsive Design
------------------------------- */
-
-/* Mobile-first */
-@media (max-width: 600px) {
-  :root {
-    --header-height: 90px;
-  }
-
-  html, body {
-    overflow-x: hidden !important;
-  }
-
-  main {
-    padding: 0 0.8rem;
-  }
-
-  footer {
-    font-size: 0.85rem;
-    padding: 1.5rem 0.8rem 5rem; /* add space for bottom nav */
-  }
-
-  .bottom-nav {
-    font-size: 0.85rem;
-    padding: 0.4rem 0;
-  }
-
-  img {
-    border-radius: 10px;
-  }
-}
-
-/* Tablets */
-@media (min-width: 601px) and (max-width: 1024px) {
-  :root {
-    --header-height: 100px;
-  }
-
-  main {
-    padding: 0 1.5rem;
-  }
-
-  footer {
-    padding: 2rem 1.5rem 5rem;
-  }
-}
-
-/* Desktops */
-@media (min-width: 1025px) {
-  main {
-    padding: 0 2rem;
-  }
-
-  footer {
-    padding: 2.5rem 2rem;
-  }
-}
-
-/* ------------------------------
-   🌈 Animations
------------------------------- */
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 0.6s ease-in-out forwards;
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ------------------------------
-   🧍 Extra Safeguards
------------------------------- */
-
-/* Prevent animation overflow or bounce */
-section, div, article, aside, nav {
   max-width: 100vw;
-  overflow-x: clip; /* modern fix for mobile bounce */
 }
 
-/* Prevent framer-motion & carousel elements from causing layout shift */
-[motion-div],
-[role="region"],
-.slick-slider,
-.carousel-container {
-  max-width: 100%;
+/* Prevent nested containers or menus from exceeding screen width */
+header,
+nav,
+main,
+footer,
+div,
+section {
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+/* Fix dropdowns accidentally causing overflow */
+[data-theme],
+.header,
+.mobileHeader,
+.menuOverlay,
+.mobileMenu,
+.dropdown {
+  overflow-x: clip;
+}
+
+/* Ensure dropdown menus don't push layout */
+.dropdown,
+.submenu {
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* When mobile menu opens, lock background */
+body.menu-open {
   overflow: hidden !important;
+  touch-action: none;
 }
